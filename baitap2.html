@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>SideBar Menu</title>
+	<link rel="stylesheet" href="bt2.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".hamburger .hamburger__inner").click(function(){
+			  $(".wrapper").toggleClass("active")
+			})
+
+			$(".top_navbar .fas").click(function(){
+			   $(".profile_dd").toggleClass("active");
+			});
+		})
+    </script>
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+</head>
+<body>
+  <div class="header">
+    <img src="img/vnp.jpg">
+    <i class="fas fa-user"> Hau.nguyentrung.ncc@ncc.asia </i>
+  </div>
+  <div class="nav">
+     <ul>
+       <li class="actived"><a href="">HỆ THỐNG</a></li>
+       <li><a href="">KÊ KHAI</a></li>
+       <li><a href="">QUẢN LÍ NHÂN SỰ</a></li>
+       <li><a href="">BÁO CÁO THỐNG KÊ</a></li>
+       <li><a href="">QUẢN LÍ BIÊN LAI</a></li>
+       <li><a href="">TRA CỨU</a></li>
+     </ul>
+  </div>
+  <div class="wrapper">    
+    <div class="main_container">
+        <div class="sidebar" style="top:132px;">
+            <div class="sidebar__inner">
+                <div class="top_navbar">
+                    <div class="hamburger">
+                       <div class="hamburger__inner">
+                         <div class="one"></div>
+                         <div class="two"></div>
+                         <div class="three"></div>
+                       </div>
+                    </div>
+                  </div>
+              <ul>
+                <li>
+                  <a href="#" class="active" style="margin-top: 17px;">
+                    <span class="icon"><i class="fas fa-address-card"></i></span>
+                    <span class="title">Danh mục hệ thống</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon"><i class="fab fa-delicious" style="color:#004D40;"></i></span>
+                    <span class="title">Quản lí người dùng</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon"><i class="fab fa-elementor" style="color:#004D40;"></i></span>
+                    <span class="title">Danh sách KH</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon"><i class="fas fa-mail-bulk" style="color:#004D40;"></i></span>
+                    <span class="title">Email</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon"><i class="fas fa-border-al l" style="color:#004D40;"></i></span>
+                    <span class="title">Tables</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="main" style="width: 40%;">
+                <h1>Danh mục mạng lưới</h1>
+                <hr>
+                <div class="search">
+                   <b>Tìm Kiếm :</b>
+                   <input type="search" name="search" id="">
+                   <button type="submit">
+                     <i class="fa fa-search">Tìm kiếm</i>
+                   </button>
+                </div>
+                <hr>
+                <div class="dropdown" style="padding: 20px;">
+                    <button onclick="myFunction()" class="dropbtn"><i class="fas fa-folder"  style="font-size:26px;color: aquamarine;"></i><a href="" style="color: black;">00-Tổng công ty</a></button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#"><i class="fas fa-folder"  style="font-size:26px;color: aquamarine;"></i> 10-Bưu điện TP Hà Nội</a>
+                      <a href="#" style="margin-left: 50px;"><i class="fas fa-folder"  style="font-size:26px;color: aquamarine;"></i>1155-Bưu điện trung tâm 6 </a>
+                      <a href="#" style="margin-left: 70px;"><i class="fas fa-folder"  style="font-size:26px;color: aquamarine;"></i> 127060-KHL Hoàng Mai</a>
+                    </div>
+                  </div>
+             </div>
+             <div class="content" style="float: left;width: 60%;">
+                <h1 style="padding: 25px;">THÔNG TIN CHI TIẾT</h1>
+                <hr>
+                <form action="">
+                    <label for="">Mã</label> <input type="text" placeholder="127060" style="margin-left: 97px;">
+                    <label for="" style=" margin-left: 169px;">Tên</label> <input type="text" placeholder="KHL Hoang Mai">
+                </form>
+                <form action="">
+                    <label for="">Địa chỉ</label> <input type="text" placeholder="Phuong Giap Bat" style="margin-left: 70px;"> <input type="text" placeholder="Quan Hoang Mai"> <input type="text" placeholder="TP Ha Noi">
+                </form>
+                <form action="">
+                    <input type="text" placeholder="so 811 ,Duong Giai Phong,Phuong Giap Bat" style="margin-left: 123px;width: 80%;">
+                </form>
+                <form action="">
+                    <label for="">Số điện thoại</label> <input type="text" placeholder="02436649409" style="margin-left: 24px;">
+                    <label for="" style="margin-left: 150px;">Số fax</label> <input type="text" placeholder="">
+                </form>
+                <form action="">
+                    <label for="">Loại BC</label> <input type="text" placeholder="K12" style=" margin-left: 61px;">
+                </form>
+                <form action="">
+                    <label for="">Cơ quan BHXH</label><input type="text" style="width: 80%;">
+                </form>
+              </div>
+        </div>
+    </div>
+    
+  </div>
+</body>
+</html>

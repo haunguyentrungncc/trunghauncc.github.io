@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contaner">
+        <form action="" class="filter">
+            <label for="">Class Name:
+                <select value="Chọn Class" id="classNameSelect">
+                    
+                </select>
+            </label>
+            <label for="" id="students-select" style="display: none;">
+                Chọn students:
+                <select value="Chọn Class" id="studentsSelect"> </select>
+            </label>
+        </form>
+        <div id="display-student"></div>
+    </div>
+    <script>
+      
+        const classNameSelectElement = document.querySelector("#classNameSelect");
+        const studentsSelectElement = document.querySelector("#studentsSelect");
+        const displayStudentElement = document.querySelector("#display-student");
+        const studentsSelectWrapperElement = document.querySelector("#students-select");
+
+        studentsSelectWrapperElement.style.display = 'none'
+        let listStudents = [
+            { id: 1, name: "tran van a", className: ".net" },
+            { id: 2, name: "tran van b", className: ".net" },
+            { id: 3, name: "tran van c", className: "angular" },
+            { id: 4, name: "tran van d", className: "angular" },
+            { id: 5, name: "tran van e", className: "java" },
+            { id: 6, name: "tran van f", className: "java" },
+            { id: 7, name: "tran van g", className: "java" },
+            { id: 8, name: "tran van h", className: "test" },
+            { id: 9, name: "tran van i", className: "test" },
+            { id: 10, name: "tran van j", className: "test" },
+            { id: 10, name: "tran van joo", className: "ooo" },
+            { id: 10, name: "tran van jpp", className: "ppp" },
+        ];
+
+        let renderClassName = (students, element) => {
+            listClassName = students.map(student => student.className)
+            console.log('list class Name: ', listClassName)
+            listClassName = listClassName.filter((c, i) => listClassName.indexOf(c) === i);
+            let listClassNameMaped = listClassName.map(className => `<option>${className}</option>`)
+
+            element.innerHTML = listClassNameMaped.join("");
+        };
+
+        let renderStudents = (students, element) => {
+            students = students.map(
+                (student) => `<option>${student.name}</option>`
+            );
+            element.innerHTML = students.join("");
+        };
+
+        renderClassName(listStudents, classNameSelectElement);
+
+        let filterStudentByClassName = (students, className) => {
+            return students.filter((student) => student.className === className);
+        };
+
+        classNameSelectElement.addEventListener("change", (e) => {
+            const { value } = e.target;
+            if (value === "none") studentsSelectWrapperElement.style.display = "none";
+            if (value !== 'none') studentsSelectWrapperElement.style.display = "block";
+            renderStudents(
+                filterStudentByClassName(listStudents, value),
+                studentsSelectElement
+            );
+        });
+    </script> 
+</body>
+</html>
